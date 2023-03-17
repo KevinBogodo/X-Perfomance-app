@@ -2,7 +2,7 @@
 
 // Modules de controle du cycle de vie de l'application et de création 
 // de fenêtre native de navigateur
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Notification } = require('electron')
 const path = require('path')
 require('update-electron-app')()
 
@@ -30,6 +30,8 @@ const NOTIFICATION_BODY = 'Notification from the Main process'
 function showNotification () {
   new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
+
+app.whenReady().then(createWindow).then(showNotification)
 
 // Cette méthode sera appelée quand Electron aura fini
 // de s'initialiser et sera prêt à créer des fenêtres de navigation.
