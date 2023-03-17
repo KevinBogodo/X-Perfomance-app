@@ -25,13 +25,13 @@ module.exports = {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'github-user-name',
-          name: 'github-repo-name',
+          owner: 'KevinBogodo',
+          name: 'X-Perfomance-app',
         },
         prerelease: false,
         draft: true,
       },
     },
   ],
-  
+
 };
