@@ -2,7 +2,7 @@
 
 // Modules de controle du cycle de vie de l'application et de création 
 // de fenêtre native de navigateur
-const { app, BrowserWindow, Notification } = require('electron')
+const { app, BrowserWindow} = require('electron')
 const path = require('path')
 require('update-electron-app')()
 
@@ -11,9 +11,11 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: 'icon.png',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    
   })
 
   // et chargement de l'index.html de l'application.
@@ -31,13 +33,13 @@ function showNotification () {
   new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
 
-app.whenReady().then(createWindow).then(showNotification)
 
 // Cette méthode sera appelée quand Electron aura fini
 // de s'initialiser et sera prêt à créer des fenêtres de navigation.
 // Certaines APIs peuvent être utilisées uniquement quant cet événement est émit.
 app.whenReady().then(() => {
   createWindow()
+  then(showNotification)
 
   app.on('activate', () => {
     // Sur macOS il est commun de re-créer une fenêtre  lors 
