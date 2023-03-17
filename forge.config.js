@@ -27,6 +27,7 @@ module.exports = {
         repository: {
           owner: 'KevinBogodo',
           name: 'X-Perfomance-app',
+          GITHUB_TOKEN: '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',
         },
         prerelease: false,
         draft: true,

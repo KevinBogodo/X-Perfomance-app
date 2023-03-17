@@ -4,6 +4,7 @@
 // de fenêtre native de navigateur
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+require('update-electron-app')()
 
 const createWindow = () => {
   // Création de la fenêtre de navigateur.
@@ -20,6 +21,14 @@ const createWindow = () => {
 
   // Ouvrir les outils de développement.
   // mainWindow.webContents.openDevTools()
+}
+
+// show notification
+const NOTIFICATION_TITLE = 'Basic Notification'
+const NOTIFICATION_BODY = 'Notification from the Main process'
+
+function showNotification () {
+  new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()
 }
 
 // Cette méthode sera appelée quand Electron aura fini
