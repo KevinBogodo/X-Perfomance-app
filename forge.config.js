@@ -28,8 +28,8 @@ module.exports = {
           owner: 'KevinBogodo',
           name: 'X-Perfomance-app',
         },
-        prerelease: true,
-        draft: false,
+        // prerelease: true
+        draft: true,
       },
     },
   ],
