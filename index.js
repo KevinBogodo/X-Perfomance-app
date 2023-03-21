@@ -4,13 +4,12 @@
 // de fenêtre native de navigateur
 const { app, BrowserWindow} = require('electron')
 const path = require('path')
-require('update-electron-app')()
 
 const createWindow = () => {
   // Création de la fenêtre de navigateur.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    minWidth: 1280,
+    minHeight: 800,
     icon: 'icon.png',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
@@ -18,16 +17,23 @@ const createWindow = () => {
     
   })
 
+  // To maximise
+  mainWindow.maximize()
+
+  require('update-electron-app')()
+
   // et chargement de l'index.html de l'application.
   mainWindow.loadFile('index.html')
+
+
 
   // Ouvrir les outils de développement.
   // mainWindow.webContents.openDevTools()
 }
 
 // show notification
-const NOTIFICATION_TITLE = 'Basic Notification'
-const NOTIFICATION_BODY = 'Notification from the Main process'
+const NOTIFICATION_TITLE = 'x Performance'
+const NOTIFICATION_BODY = 'Start X Performance'
 
 function showNotification () {
   new Notification({ title: NOTIFICATION_TITLE, body: NOTIFICATION_BODY }).show()

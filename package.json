@@ -1,6 +1,6 @@
 {
   "name": "X-Performance",
-  "version": "1.0.7",
+  "version": "1.0.11",
   "description": "Aplication de suivi de Performance",
   "main": "index.js",
   "repository": "https://github.com/KevinBogodo/X-Perfomance-app.git",
